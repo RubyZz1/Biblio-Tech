@@ -6,8 +6,23 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-root></app-root>
+  <div class="container">
+    <h1 class="title">Bibliotech</h1>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Chercher des livres.." [(ngModel)]="searchTerm" (input)="searchBooks()">
+      <button class="search-button" (click)="searchBooks()">Chercher</button>
+    </div>
+    <br>
+    <br>
+    <div class="books-container">
+      <div class="book" *ngFor="let book of books">
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.resume }}</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

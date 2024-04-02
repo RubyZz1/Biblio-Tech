@@ -12,7 +12,7 @@ export class BibliotechService {
 
   constructor(private http: HttpClient) {}
 
-  getAllBook(): Observable<Book[]> {
+  getAllBooks(): Observable<Book[]> { // Correction du nom de la méthode
     return this.http.get<Book[]>(this.bookUrl).pipe(
         tap((data) => console.log(data))
     );

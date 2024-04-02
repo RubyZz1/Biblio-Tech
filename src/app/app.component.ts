@@ -1,14 +1,35 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { BibliotechService } from './bibliotech.service';
+import { Book } from './bibliotech';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  template:`
-  <h1> Hello Bibliotech !</h1>
-  `,
-  imports: [RouterOutlet],
+  templateUrl: './index.html', // Utilisation du template HTML
+  styleUrls: ['./styles.css'] // Utilisation du fichier CSS
 })
-export class AppComponent {
-  title = 'bibliotech';
+export class AppComponent implements OnInit {
+  searchTerm: string = '';
+  books: Book[] = [];
+
+  constructor(private bibliotechService: BibliotechService) {}
+
+  ngOnInit() {
+    this.getAllBooks();
+  }
+
+  getAllBooks() {
+    this.bibliotechService.getAllBooks().subscribe(
+      (data: Book[]) => {
+        this.books = data;
+        console.log(this.books); // Afficher les données dans la console
+      },
+      (error) => {
+        console.error('Une erreur s\'est produite : ', error);
+      }
+    );
+  }
+
+  searchBooks() {
+    // Implémentez la recherche des livres ici
+  }
 }
