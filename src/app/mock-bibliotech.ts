@@ -1,4 +1,5 @@
 import { Book } from './bibliotech';
+import { Page } from './bibliotech';
 
 export const BOOKS: Book[] = [
   {
@@ -17,4 +18,21 @@ export const BOOKS: Book[] = [
     createdAt: new Date('2024-04-01'),
     updatedAt: new Date('2024-04-01'),
   },
+];
+
+export const PAGE: Page[] = [
+  {
+    id: 1,
+    title: 'Première Page',
+    content: 'Contenu de la première page.',
+    createdAt: new Date('2024-04-06'),
+    updateAt: new Date('2024-04-06')
+},
+{
+    id: 2,
+    title: 'Deuxième Page',
+    content: 'Contenu de la deuxième page.',
+    createdAt: new Date('2024-04-05'),
+    updateAt: new Date('2024-04-05')
+}
 ];
